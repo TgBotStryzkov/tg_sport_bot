@@ -14,8 +14,7 @@ warnings.filterwarnings("ignore", message="If 'per_message=", category=UserWarni
 from datetime import date
 from datetime import datetime, timedelta
 
-# ID администратора, которому доступны спец. команды
-ADMIN_ID = "1141148263"
+
 # Файл с основной пользовательской базой (не используется напрямую)
 DATA_FILE = "sports_data.json"
 
@@ -1071,8 +1070,6 @@ async def choose_muscle(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # ─── Запуск ─── #
 def main():
-    app = ApplicationBuilder().token("8148164563:AAHI2duuaHxrhksit3E_AEVF9qr2fF8rc44").build()
-
     # Команды
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("input", input_data))
