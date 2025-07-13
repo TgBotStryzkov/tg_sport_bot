@@ -13,8 +13,11 @@ import warnings
 warnings.filterwarnings("ignore", message="If 'per_message=", category=UserWarning)
 from datetime import date
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 
+load_dotenv()
 
+ADMIN_ID = int(os.getenv("ADMIN_ID"))
 # Файл с основной пользовательской базой (не используется напрямую)
 DATA_FILE = "sports_data.json"
 
@@ -1070,6 +1073,9 @@ async def choose_muscle(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # ─── Запуск ─── #
 def main():
+    BOT_TOKEN = os.getenv("BOT_TOKEN")
+    app = ApplicationBuilder().token(BOT_TOKEN).build()
+    
     # Команды
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("input", input_data))
